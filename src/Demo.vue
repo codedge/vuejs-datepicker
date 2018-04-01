@@ -12,14 +12,17 @@
     </div>
 
     <div class="example">
-      <h3>Bootstrap styled datepicker</h3>
+      <h3>Semantic UI styled datepicker</h3>
       <datepicker
-        :bootstrapStyling="true"
-        :calendarButton="true"
-        :clearButton="true"
+              placeholder="Select Date"
+              wrapperClass="ui icon input"
+              :calendarButton="true" calendar-button-icon="calendar alternate outline icon"
+              :clearButton="true" clear-button-icon="window close icon"
       ></datepicker>
       <code>
-          &lt;datepicker placeholder="Select Date"&gt;&lt;/datepicker&gt;
+        &lt;datepicker placeholder="Select Date" wrapperClass="ui icon input"
+        :calendarButton="true" calendar-button-icon="calendar alternate outline icon"
+        :clearButton="true" clear-button-icon="window close icon"&gt;&lt;/datepicker&gt;
       </code>
     </div>
 

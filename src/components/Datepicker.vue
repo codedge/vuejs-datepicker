@@ -1,17 +1,9 @@
 <template>
   <div class="vdp-datepicker" :class="[wrapperClass, isRtl ? 'rtl' : '']">
-    <div v-if="bootstrapStyling" :class="{'input-group' : bootstrapStyling}">
-      <!-- Calendar Button -->
-      <span v-if="calendarButton" class="vdp-datepicker__calendar-button" :class="{'input-group-addon' : bootstrapStyling}" @click="showCalendar" v-bind:style="{'cursor:not-allowed;' : disabledPicker}">
-        <i :class="calendarButtonIcon">
-          {{ calendarButtonIconContent }}
-          <span v-if="!calendarButtonIcon">&hellip;</span>
-        </i>
-      </span>
       <!-- Input -->
       <input
         :type="inline ? 'hidden' : 'text'"
-        :class="[ inputClass, { 'form-control' : bootstrapStyling } ]"
+        :class="[ inputClass ]"
         :name="name"
         :ref="refName"
         :id="id"
@@ -23,13 +15,19 @@
         :disabled="disabledPicker"
         :required="required"
         readonly>
+
+      <!-- Calendar Button -->
+      <i v-if="calendarButton" class="vdp-datepicker__calendar-button" :class="calendarButtonIcon" @click="showCalendar" v-bind:style="{'cursor:not-allowed;' : disabledPicker}">
+          {{ calendarButtonIconContent }}
+      </i>
+
       <!-- Clear Button -->
-      <span v-if="clearButton && selectedDate" class="vdp-datepicker__clear-button" :class="{'input-group-addon' : bootstrapStyling}" @click="clearDate()">
-        <i :class="clearButtonIcon">
-          <span v-if="!clearButtonIcon">&times;</span>
-        </i>
-      </span>
-    </div>
+      <template v-if="clearButton && selectedDate">
+          &nbsp;
+          <button class="vdp-datepicker__clear-button ui icon button" @click="clearDate()">
+              <i :class="clearButtonIcon"></i>
+          </button>
+      </template>
 
     <!-- Day View -->
     <template v-if="allowedToShowView('day')">
@@ -147,7 +145,6 @@ export default {
     calendarButton: Boolean,
     calendarButtonIcon: String,
     calendarButtonIconContent: String,
-    bootstrapStyling: Boolean,
     initialView: String,
     disabledPicker: Boolean,
     required: Boolean,
