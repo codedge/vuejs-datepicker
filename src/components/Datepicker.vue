@@ -1,6 +1,6 @@
 <template>
   <div class="vdp-datepicker" :class="[wrapperClass, isRtl ? 'rtl' : '']">
-    <div :class="{'input-group' : bootstrapStyling}">
+    <div v-if="bootstrapStyling" :class="{'input-group' : bootstrapStyling}">
       <!-- Calendar Button -->
       <span v-if="calendarButton" class="vdp-datepicker__calendar-button" :class="{'input-group-addon' : bootstrapStyling}" @click="showCalendar" v-bind:style="{'cursor:not-allowed;' : disabledPicker}">
         <i :class="calendarButtonIcon">
