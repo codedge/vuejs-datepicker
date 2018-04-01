@@ -7,3 +7,9 @@ Basend on the project from @charliekassel: https://github.com/charliekassel/vuej
 ## Improvements
 
 * Can be used with [Semantic UI](https://semantic-ui.com/)
+
+## Install
+
+```
+$ npm install vuejs-datepicker-improved --save
+```
